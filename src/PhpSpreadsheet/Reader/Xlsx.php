@@ -1141,17 +1141,17 @@ class Xlsx extends BaseReader
                                             $fillImageRelId = null;
                                             $fillImageTitle = '';
 
-                                            $clientData = $shape->xpath('.//x:ClientData');
+                                            $clientData = $shape->xpath('.//v:ClientData');
                                             if (is_array($clientData) && !empty($clientData)) {
                                                 $clientData = $clientData[0];
 
                                                 if (isset($clientData['ObjectType']) && (string) $clientData['ObjectType'] == 'Note') {
-                                                    $temp = $clientData->xpath('.//x:Row');
+                                                    $temp = $clientData->xpath('.//v:Row');
                                                     if (is_array($temp)) {
                                                         $row = $temp[0];
                                                     }
 
-                                                    $temp = $clientData->xpath('.//x:Column');
+                                                    $temp = $clientData->xpath('.//v:Column');
                                                     if (is_array($temp)) {
                                                         $column = $temp[0];
                                                     }
